@@ -4,7 +4,7 @@ $( document ).ready(function() {
   //Variables
   var ques = ["question1", "question2", "question3", "question4"]
   var question, a1, a2, a3, a4, correctAnswers=0, incorrectAnswers=0, totalQuestionsAnswered;
-  var audio = new Audio("assets/sound/as.mp3");
+  var audio = new Audio("assets/sound/as1.mp3");
   var userAnswer1="", userAnswer2="", userAnswer3="", userAnswer4="";
 
   var gameq = {
