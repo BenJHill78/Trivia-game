@@ -3,8 +3,9 @@ $( document ).ready(function() {
 
   //Variables
   var ques = ["question1", "question2", "question3", "question4"]
-  var question, a1, a2, a3, a4, correctAnswers, incorrectAnswers, totalQuestionsAnswered;
+  var question, a1, a2, a3, a4, correctAnswers=0, incorrectAnswers=0, totalQuestionsAnswered;
   var audio = new Audio("assets/sound/as.mp3");
+  var userAnswer1="", userAnswer2="", userAnswer3="", userAnswer4="";
 
   var gameq = {
     myQuestions: {
@@ -46,6 +47,11 @@ $( document ).ready(function() {
   function timeUp(){
     $("#countdown").append("<h2> Times Up! </h2>")
     audio.pause();
+console.log(userAnswer1);
+console.log(userAnswer2);
+console.log(userAnswer3);
+console.log(userAnswer4);
+right();
   }
 
   function q1(){
@@ -53,7 +59,8 @@ $( document ).ready(function() {
     $("#ans1").html(gameq.myQuestions.choose[0]);
     $("#ans2").html(gameq.myQuestions.choose[1]);
     $("#ans3").html(gameq.myQuestions.choose[2]);
-        console.log ("1 answer is a")
+ //   console.log ("1 answer is a")
+    checkAnswer();
   }
 
   function q2(){
@@ -61,7 +68,8 @@ $( document ).ready(function() {
     $("#ans4").html(gameq.myQuestions2.choose[0]);
     $("#ans5").html(gameq.myQuestions2.choose[1]);
     $("#ans6").html(gameq.myQuestions2.choose[2]);
-    console.log ("2 answer is c")
+ //   console.log ("2 answer is c")
+    checkAnswer();
   }
 
   function q3(){
@@ -69,7 +77,8 @@ $( document ).ready(function() {
     $("#ans7").html(gameq.myQuestions3.choose[0]);
     $("#ans8").html(gameq.myQuestions3.choose[1]);
     $("#ans9").html(gameq.myQuestions3.choose[2]);
-            console.log ("3 answer is a")
+    //console.log ("3 answer is a")
+    checkAnswer();
   }
 
   function q4(){
@@ -77,47 +86,71 @@ $( document ).ready(function() {
     $("#ans10").html(gameq.myQuestions4.choose[0]);
     $("#ans11").html(gameq.myQuestions4.choose[1]);
     $("#ans12").html(gameq.myQuestions4.choose[2]);
-            console.log ("4 answer is b")
+//    console.log ("4 answer is b")
+    checkAnswer();
   }
-
-  $("in1").on("click"); 
-
-  function displayOutput(){
-    userAnswer = "a"
-    if (in1=="a")
-      correctAnswers ++
-    else if (in1 != "a")
-      incorrectAnswers ++
+  function checkAnswer(){
+    $("#in1").on("click", function(){
+      userAnswer1 = "a";
+    });
+    $("#in2").on("click", function(){
+      userAnswer1 = "b";
+    });
+    $("#in3").on("click", function(){
+      userAnswer1 = "c";
+    });
+    $("#in4").on("click", function(){
+      userAnswer2 = "a";
+    });
+    $("#in5").on("click", function(){
+      userAnswer2 = "b";
+    });
+    $("#in6").on("click", function(){
+      userAnswer2 = "c";
+    });
+    $("#in7").on("click", function(){
+      userAnswer3 = "a";
+    });
+    $("#in8").on("click", function(){
+      userAnswer3 = "b";
+    });
+    $("#in9").on("click", function(){
+      userAnswer3 = "c";
+    });
+    $("#in10").on("click", function(){
+      userAnswer4 = "a";
+    });
+    $("#in11").on("click", function(){
+      userAnswer4 = "b";
+    });
+    $("#in12").on("click", function(){
+      userAnswer4 = "c";
+    });
   }
-
-  $("in2").on("click"); 
-
-  function displayOutput(){
-    userAnswer = "c"
-    if (in2=="c")
-      correctAnswers ++
-    else if (in2 != "c")
-      incorrectAnswers ++
+function right(){
+  if (userAnswer1==gameq.myQuestions.correctAnswer){
+    correctAnswers++;
+  }else if(userAnswer1!=gameq.myQuestions.correctAnswer){
+    incorrectAnswers++;
   }
-
-  $("in3").on("click"); 
-
-  function displayOutput(){
-    userAnswer = "a"
-    if (in3=="a")
-      correctAnswers ++
-    else if (in3 != "a")
-      incorrectAnswers ++
+    if (userAnswer2==gameq.myQuestions2.correctAnswer){
+    correctAnswers++;
+  }else if(userAnswer2!=gameq.myQuestions2.correctAnswer){
+    incorrectAnswers++;
   }
-
-  $("in4").on("click"); 
-
-  function displayOutput(){
-    userAnswer = "b"
-    if (in4=="b")
-      correctAnswers ++
-    else if (in4 != "b")
-      incorrectAnswers ++
+    if (userAnswer3==gameq.myQuestions3.correctAnswer){
+    correctAnswers++;
+  }else if(userAnswer3!=gameq.myQuestions3.correctAnswer){
+    incorrectAnswers++;
   }
+    if (userAnswer4==gameq.myQuestions4.correctAnswer){
+    correctAnswers++;
+  }else if(userAnswer4!=gameq.myQuestions4.correctAnswer){
+    incorrectAnswers++;
+  }
+  $("#correctAnswers").html("Correct Answers: "+correctAnswers);
+    $("#incorrectAnswers").html("Incorrect Answers: "+incorrectAnswers);
+}
+
+
 });
-

@@ -1,8 +1,12 @@
     
-    body {
-    	background-image: url("../images/aslogo.jpg");
-    	background-size: cover;
-        text-align: center;
-        font-family: 'Permanent Marker', cursive; 
-        color: red;
-    }
+body {
+	background-image: url("../images/aslogo.jpg");
+	background-size: cover;
+	text-align: center;
+	background-size: 100%;
+	font-family: 'Permanent Marker', cursive; 
+	color: red;
+}
+form {
+	font-size: 20px;
+}
